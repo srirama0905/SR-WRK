@@ -1,0 +1,38 @@
+{
+  "name": "crapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node /server/crapp.js",
+    "dev": "nodemon --watch server server/crapp.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "array.prototype.flatmap": "^1.2.3",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cookie": "^0.4.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "date-diff": "^0.2.1",
+    "dateformat": "^4.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "flatmap": "0.0.3",
+    "hashmap": "^2.4.0",
+    "joi": "^14.3.1",
+    "joi-decimal": "^1.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1",
+    "util.promisify": "^1.0.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}

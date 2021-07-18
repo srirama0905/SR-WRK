@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/sriramramapragada/Documents/ABC-Working/abcd-server/crdbLogs/.041d4a8ce6d2f6c5cd01ac59a327c584f002f8a4-audit.json",
+    "files": [
+        {
+            "date": 1610037250917,
+            "name": "/Users/sriramramapragada/Documents/ABC-Working/abcd-server/crdbLogs/abcd-error-file2021-01-07-11.log",
+            "hash": "80e7b3adb79473b8ae4c7ac0db99c1ba"
+        }
+    ]
+}

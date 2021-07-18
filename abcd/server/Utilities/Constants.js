@@ -1,0 +1,19 @@
+module.exports = Object.freeze({
+   APPROVED: 900,
+   PENDING:  800,
+   REJECTED: 700,
+   ADMIN:    1,
+   SYSADMIN: 500,
+   SECADMIN: 400,
+   EIC: 300,
+   TEAMLEAD: 200,
+   GUEST: 100,
+   MGR:1000,
+   EXAMINER: 23,
+   INSERT :"INSERT",
+   UPDATE :"UPDATE",
+   SEARCH :"SEARCH",
+   INTIALGET :"INITIALGET",
+   AUTHORIZATION:"AUTHORIZATION"
+
+});

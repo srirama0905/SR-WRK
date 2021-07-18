@@ -1,0 +1,17 @@
+curl --location --request POST 'http://localhost:8000/userreg/api/create' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "regUserID": -1,
+    "firstName": "1219qaasdfrewtcft",
+    "lastName":"sdassd12rjhgfffgg1h",
+    "emailId": "81as237196@gmail.com",
+    "country": 1,
+    "phoneNumber": "6287654321",
+    "traingIDFK": 2,
+    "questions": [
+        { "useranswerIdPk": -1, "regUserID": -1,"questionIDFK":2, "answersDesc":"GANA","answercomboID":2,"traingIDFK": 2},
+        { "useranswerIdPk": -1, "regUserID": -1,"questionIDFK":1, "answersDesc":"SRIRAM","answercomboID":1,"traingIDFK": 2},
+        { "useranswerIdPk": -1, "regUserID": -1,"questionIDFK":3, "answersDesc":"KALYAN","answercomboID":3,"traingIDFK": 2}
+      
+    ]
+}'

@@ -1,0 +1,23 @@
+@media all and (max-width: 799px) {
+    /* We tell both sidebars to share a row */
+    .root { display: flex ; flex-direction: column-reverse;border: 1px solid black;  }
+    .div1{ border: 1px solid black; }
+    .div2{ border: 1px solid black; }
+    .div3{width: 100%; border: 1px solid black; }
+    
+    
+  }
+  
+
+  /* Large screens */
+  @media all and (min-width: 800px) {
+    /* We invert order of first sidebar and main
+     * And tell the main element to take twice as much width as the other two sidebars 
+     */
+    .root { display: flex;border: 1px solid black;   }
+    .div1{width: 35%; border: 1px solid black; }
+    .div2{width: 35%;border: 1px solid black; }
+    .div3{width: 30%;border: 1px solid black; }
+    
+    
+  }

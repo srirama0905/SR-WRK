@@ -1,0 +1,385 @@
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Form, Field } from 'react-final-form';
+import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
+import {
+    Typography,
+    Paper,
+    Link,
+    Grid,
+    Button,
+    CssBaseline,
+    RadioGroup,
+    FormLabel,
+    MenuItem,
+    FormGroup,
+    FormControl,
+    FormControlLabel,
+} from '@material-ui/core';
+// Picker
+
+const onSubmit = async values => {
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    await sleep(300);
+    window.alert(JSON.stringify(values, 0, 2));
+};
+const validate = values => {
+    const errors = {};
+    if (!values.firstName) {
+        errors.firstName = 'Required';
+    }
+    if (!values.lastName) {
+        errors.lastName = 'Required';
+    }
+    if (!values.email) {
+        errors.email = 'Required';
+    }
+    return errors;
+};
+
+const UserForm = () => {
+    return (
+        <div style={{ padding: 16, margin: 'auto' }}>
+            <CssBaseline />
+            <Typography variant="h4" align="center" component="h1" gutterBottom>
+                🏁 React Final Form
+      </Typography>
+            <Typography variant="h5" align="center" component="h2" gutterBottom>
+                Material-UI Example
+      </Typography>
+            <Typography paragraph>
+                <Link href="https://github.com/erikras/react-final-form#-react-final-form">
+                    Read Docs
+        </Link>
+        . This example demonstrates using{' '}
+                <Link href="https://material-ui.com/demos/text-fields/">
+                    Material-UI
+        </Link>{' '}
+        form controls.
+      </Typography>
+            <Form
+                onSubmit={onSubmit}
+                initialValues={{ employed: true, stooge: 'larry' }}
+                validate={validate}
+                render={({ handleSubmit, reset, submitting, pristine, values }) => (
+                    <form onSubmit={handleSubmit} noValidate>
+                        <Paper style={{ padding: 16 }}>
+                            <Grid container alignItems="flex-start" spacing={2}>
+                                <Grid item xs={6}>
+                                    <Field
+                                        fullWidth
+                                        required
+                                        name="firstName"
+                                        component={TextField}
+                                        type="text"
+                                        label="First Name"
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <Field
+                                        fullWidth
+                                        required
+                                        name="lastName"
+                                        component={TextField}
+                                        type="text"
+                                        label="Last Name"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Field
+                                        name="email"
+                                        fullWidth
+                                        required
+                                        component={TextField}
+                                        type="email"
+                                        label="Email"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControlLabel
+                                        label="Employed"
+                                        control={
+                                            <Field
+                                                name="employed"
+                                                component={Checkbox}
+                                                type="checkbox"
+                                            />
+                                        }
+                                    />
+                                </Grid>
+                                <Grid item>
+                                    <FormControl component="fieldset">
+                                        <FormLabel component="legend">Best Stooge</FormLabel>
+                                        <RadioGroup row>
+                                            <FormControlLabel
+                                                label="Larry"
+                                                control={
+                                                    <Field
+                                                        name="stooge"
+                                                        component={Radio}
+                                                        type="radio"
+                                                        value="larry"
+                                                    />
+                                                }
+                                            />
+                                            <FormControlLabel
+                                                label="Moe"
+                                                control={
+                                                    <Field
+                                                        name="stooge"
+                                                        component={Radio}
+                                                        type="radio"
+                                                        value="moe"
+                                                    />
+                                                }
+                                            />
+                                            <FormControlLabel
+                                                label="Curly"
+                                                control={
+                                                    <Field
+                                                        name="stooge"
+                                                        component={Radio}
+                                                        type="radio"
+                                                        value="curly"
+                                                    />
+                                                }
+                                            />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item>
+                                    <FormControl component="fieldset">
+                                        <FormLabel component="legend">Sauces</FormLabel>
+                                        <FormGroup row>
+                                            <FormControlLabel
+                                                label="Ketchup"
+                                                control={
+                                                    <Field
+                                                        name="sauces"
+                                                        component={Checkbox}
+                                                        type="checkbox"
+                                                        value="ketchup"
+                                                    />
+                                                }
+                                            />
+                                            <FormControlLabel
+                                                label="Mustard"
+                                                control={
+                                                    <Field
+                                                        name="sauces"
+                                                        component={Checkbox}
+                                                        type="checkbox"
+                                                        value="mustard"
+                                                    />
+                                                }
+                                            />
+                                            <FormControlLabel
+                                                label="Salsa"
+                                                control={
+                                                    <Field
+                                                        name="sauces"
+                                                        component={Checkbox}
+                                                        type="checkbox"
+                                                        value="salsa"
+                                                    />
+                                                }
+                                            />
+                                            <FormControlLabel
+                                                label="Guacamole 🥑"
+                                                control={
+                                                    <Field
+                                                        name="sauces"
+                                                        component={Checkbox}
+                                                        type="checkbox"
+                                                        value="guacamole"
+                                                    />
+                                                }
+                                            />
+                                        </FormGroup>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Field
+                                        fullWidth
+                                        name="notes"
+                                        component={TextField}
+                                        multiline
+                                        label="Notes"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Field
+                                        fullWidth
+                                        name="city"
+                                        component={Select}
+                                        label="Select a City"
+                                        formControlProps={{ fullWidth: true }}
+                                    >
+                                        <MenuItem value="London">London</MenuItem>
+                                        <MenuItem value="Paris">Paris</MenuItem>
+                                        <MenuItem value="Budapest">
+                                            A city with a very long Name
+                    </MenuItem>
+                                    </Field>
+                                </Grid>
+
+                                <Grid item style={{ marginTop: 16 }}>
+                                    <Button
+                                        type="button"
+                                        variant="contained"
+                                        onClick={reset}
+                                        disabled={submitting || pristine}
+                                    >
+                                        Reset
+                  </Button>
+                                </Grid>
+                                <Grid item style={{ marginTop: 16 }}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        type="submit"
+                                        disabled={submitting}
+                                    >
+                                        Submit
+                  </Button>
+                                </Grid>
+                            </Grid>
+                        </Paper>
+                        <pre>{JSON.stringify(values, 0, 2)}</pre>
+                    </form>
+                )}
+            />
+        </div>
+    );
+}
+
+export default UserForm;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'adminadmin'
+
+
+import React, { useState } from 'react';
+import { Form } from 'react-final-form';
+import PropTypes from "prop-types";
+import {
+    Typography,
+    Paper,
+    Grid,
+    Button,
+    CssBaseline,
+    FormLabel,
+    RadioGroup,
+    FormGroup,
+    FormControl,
+} from '@material-ui/core';
+import CutomTextField from "../reusablecomponents/_textbox";
+import CustomCheckBox from "../reusablecomponents/_checkboxpicker";
+import CustomRadio from "../reusablecomponents/_radiopicker";
+
+/*Import Appplication Labels */
+import * as Constants from "../../utilities/_labelinfo";
+
+const UserForm = ({
+    onSubmit,
+    initialValues,
+    validate
+  
+  }) => {
+
+    return (
+        <div style={{ padding: 1, margin: 'auto' }}>
+            <CssBaseline />
+            <Typography variant="h5" align="left" component="h1" gutterBottom>
+                {Constants.LABEL_HDR_USRDTLS}
+            </Typography>
+            <Form
+                onSubmit={onSubmit}
+                validate={validate}
+                initialValues ={initialValues}
+                render={({ handleSubmit, reset, submitting, pristine, values }) => (
+                    <form onSubmit={handleSubmit} noValidate>
+                        <Paper style={{ padding: 16 }}>
+                            <Grid container alignItems="flex-start" spacing={2}>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="text" Name="firstName" Label={Constants.LABEL_FIRST_NAME} isrequired={1} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="text" Name="lastName" Label={Constants.LABEL_LAST_NAME} isrequired= {1} />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <CutomTextField Type="email" Name="email" Label={Constants.LABEL_EMAIL} isrequired= {1} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CustomCheckBox Type="checkbox" Name="isActive" Label={Constants.LABEL_ACTIVE} isMulti = {false} Value = {0} />
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <CustomCheckBox Type="checkbox" Name="isTrailUser" Label={Constants.LABEL_TRAIL_USER} isMulti = {false} Value = {0} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="date" Name="subscriptionStDate" Label={Constants.LABEL_SUBSCRIPTION_ST_DATE} isrequired={0} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="date" Name="subscriptionEdDate" Label={Constants.LABEL_SUBSCRIPTION_END_DATE} isrequired={0} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="date" Name="trailStDate" Label={Constants.LABEL_TRAIL_ST_DATE} isrequired={0} />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <CutomTextField Type="date" Name="trailEndDate" Label={Constants.LABEL_TRAILEND_DATE} isrequired={0} />
+                                </Grid>
+                                <Grid item>
+                                    <FormControl component="fieldset">
+                                        <FormLabel component="legend">Roles</FormLabel>
+                                        <FormGroup row>
+                                            <CustomCheckBox Type="checkbox" Name="roles" Label={Constants.LABEL_ADMIN_ROLE} Value ={77}  isMulti = {true}/>
+                                            <CustomCheckBox Type="checkbox" Name="roles" Label={Constants.LABEL_MGMT_ROLE} Value ={74} isMulti = {true}/> 
+                                            <CustomCheckBox Type="checkbox" Name="roles" Label={Constants.LABEL_USER_ROLE}  Value ={73}  isMulti = {true}/>
+                                            <CustomCheckBox Type="checkbox" Name="roles" Label={Constants.LABEL_QA_ROLE}  Value ={72}  isMulti = {true}/>
+                                            <CustomCheckBox Type="checkbox" Name="roles" Label={Constants.LABEL_GUEST_ROLE} Value ={71}  isMulti = {true} />
+                                
+                                        </FormGroup>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12}> 
+                                    <CutomTextField Type="text" Name="notes" Label={Constants.LABEL_NOTES} />
+                                </Grid>
+                                <Grid item style={{ marginTop: 16 }}>
+                                    <Button
+                                        type="button"
+                                        variant="contained"
+                                        onClick={reset}
+                                        disabled={submitting || pristine}
+                                    >
+                                        {Constants.LABEL_BTN_RESET}
+                                    </Button>
+                                </Grid>
+                                <Grid item style={{ marginTop: 16 }}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        type="submit"
+                                        disabled={submitting || pristine}
+                                    >
+                                        {Constants.LABEL_BTN_SUBMIT}
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Paper>
+                        <pre>{JSON.stringify(values, 0, 2)}</pre>
+                    </form>
+                )}
+            />
+        </div>
+    );
+}
+UserForm.propTypes = {
+    initialValues: PropTypes.object.isRequired,
+    validate: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
+  };
+
+
+export default UserForm;
+.makeStyles-formControl-29 {
+    /* margin: 8px; */
+    min-width: 120px;
