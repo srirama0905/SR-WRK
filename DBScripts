@@ -1,0 +1,42 @@
+
+
+CREATE TABLE `tbl_userregistration` (
+  `ReguserId` int NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
+  `emailiD` varchar(45) NOT NULL,
+  `Phonenumber` varchar(45) NOT NULL,
+  `Country` varchar(45) DEFAULT NULL,
+  `traingIDFK` varchar(45) NOT NULL,
+  `createdby` varchar(45) DEFAULT NULL,
+  `datecreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedby` varchar(45) DEFAULT NULL,
+  `datemodified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ReguserId`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `tbl_user_reg_questions` (
+  `QuestionsIDPK` int NOT NULL AUTO_INCREMENT,
+  `questiondesc` varchar(500) NOT NULL,
+  `questiontype` varchar(45) NOT NULL,
+  PRIMARY KEY (`QuestionsIDPK`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+//02232020
+
+ CREATE TABLE `tbl_user_reg_answers` (
+  `useranswerIdPk` int NOT NULL AUTO_INCREMENT,
+  `answersDesc` varchar(500) NOT NULL,
+  `createdby` varchar(45) NOT NULL,
+  `datecreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modifiedBy` varchar(45) NOT NULL,
+  `datemodified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UserIDFK` int NOT NULL DEFAULT '0',
+  `answercomboID` int NOT NULL DEFAULT '-1',
+  `QuestionIDFK` int NOT NULL,
+  `traingIDFK` int NOT NULL,
+  PRIMARY KEY (`useranswerIdPk`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
